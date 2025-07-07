@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* ---- Reset Básico e Estilos Gerais ---- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:  'Open sans', 'Times New Roman'; /* Use uma fonte do Google Fonts aqui depois! */
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ---- Estilos dos Títulos ---- */
+h2, h3 {
+  font-family: 'Poppins', sans-serif; /* A MÁGICA ACONTECE AQUI */
+  font-weight: 700; /* Usa a versão "bold" da fonte */
+  color: #2D4C69; /* Azul escuro do seu logo */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* ---- Seção de Serviços ---- */
+
+#services {
+  padding: 4rem 2rem; /* Espaçamento interno: 4rem em cima/baixo, 2rem nos lados */
+  background-color: #f4f4f4; /* Um fundo cinza bem claro para destacar a seção */
+}
+
+.services-container {
+  display: flex; /* ATIVA O FLEXBOX! */
+  justify-content: center; /* Centraliza os cards no container */
+  gap: 2rem; /* Cria um espaço de 2rem entre os cards */
+  flex-wrap: wrap; /* Permite que os cards quebrem para a linha de baixo em telas menores */
+  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+  margin: 0 auto; /* Truque para centralizar o container na página */
+}
+
+/* ---- Cards de Serviço ---- */
+
+.service-card {
+  background-color: #fff; /* Fundo branco */
+  border: 1px solid #ddd; /* Borda sutil */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 2rem; /* Espaçamento interno do card */
+  text-align: center;
+  width: 300px; /* Largura fixa para cada card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+}
+
+.service-card:hover {
+  transform: translateY(-5px); /* Levanta um pouco o card ao passar o mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+}
+
+.service-card h3 {
+  color: #4B8F9E; /* Azul claro/teal do seu logo */
+  margin-bottom: 1rem;
+}
