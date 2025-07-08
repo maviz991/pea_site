@@ -65,3 +65,148 @@ h2 {
   color: #4B8F9E; /* Azul claro/teal do seu logo */
   margin-bottom: 1rem;
 }
+
+/* ---- Seção Sobre ---- */
+
+#about {
+  padding: 4rem 2rem;
+  background-color: #fff; /* Fundo branco para contrastar com a seção de serviços */
+}
+
+.about-container {
+  display: flex; /* ATIVA O FLEXBOX! */
+  align-items: center; /* Alinha a imagem e o texto verticalmente no centro */
+  justify-content: center; /* Centraliza o conteúdo */
+  gap: 3rem; /* Espaço entre a imagem e o texto */
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Permite que o texto vá para baixo da imagem em telas pequenas */
+}
+
+.about-image,
+.about-text {
+  flex: 1; /* Faz com que ambos tentem ocupar o mesmo espaço (cria as 2 colunas) */
+  min-width: 300px; /* Largura mínima antes de quebrar a linha */
+}
+
+.about-image img {
+  width: 100%; /* Garante que a imagem seja responsiva e ocupe todo o espaço do seu container */
+  height: auto;
+  border-radius: 8px; /* Bordas arredondadas, para combinar com os cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.about-text h2 {
+  text-align: left; /* O título geral da página fica no centro, mas este aqui fica alinhado à esquerda */
+  margin-bottom: 1rem;
+}
+
+.about-text h3 {
+  margin-bottom: 1.5rem;
+  color: #4B8F9E; /* Usando a outra cor do seu logo */
+  font-size: 1.5rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem; /* Espaçamento entre os parágrafos */
+}
+/* ---- Rodapé ---- */
+
+footer {
+  background-color: #2D4C69; /* Azul escuro do logo */
+  color: #f4f4f4; /* Texto claro para contraste */
+  padding: 3rem 2rem 0; /* Espaçamento interno, sem preenchimento na base pois o footer-bottom terá o seu */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Espalha as colunas */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap; /* Essencial para responsividade */
+}
+
+.footer-column {
+  flex: 1; /* Permite que as colunas cresçam */
+  min-width: 250px; /* Largura mínima antes de quebrar a linha */
+}
+
+.footer-column h4 {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative; /* Base para o sublinhado decorativo */
+}
+
+/* Linha decorativa abaixo do título h4 */
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 50px;
+  background-color: #4B8F9E; /* Azul claro/teal do logo */
+}
+
+.footer-logo {
+  width: 120px; /* Tamanho do logo no rodapé */
+  margin-bottom: 1rem;
+}
+
+.footer-about p {
+  color: #ccc;
+}
+
+/* Estilos para a lista de links */
+.footer-links ul {
+  list-style: none; /* Remove as bolinhas da lista */
+}
+
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #4B8F9E; /* Muda de cor ao passar o mouse */
+}
+
+/* Estilos para os ícones de redes sociais */
+.social-icons a {
+  display: inline-flex; /* Usamos flex para centralizar o ícone */
+  justify-content: center;
+  align-items: center;
+  color: #2D4C69; /* Cor do ícone (azul escuro) */
+  background-color: #fff; /* Fundo branco */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Deixa o fundo circular */
+  margin-right: 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #4B8F9E; /* Muda o fundo ao passar o mouse */
+  color: #fff; /* Muda o ícone para branco */
+}
+
+/* Barra inferior do rodapé */
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid #4a6a8a; /* Linha sutil de separação */
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
