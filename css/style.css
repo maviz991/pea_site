@@ -27,6 +27,60 @@ h2 {
   font-size: 2.5rem;
 }
 
+/* ---- Cabeçalho (Header) ---- */
+
+header {
+  display: flex; /* ATIVA O FLEXBOX! A base de tudo */
+  justify-content: space-between; /* Joga o logo para a esquerda e a navegação para a direita */
+  align-items: center; /* Alinha o logo e os links verticalmente no centro */
+  padding: 1rem 4rem; /* Espaçamento interno (1rem em cima/baixo, 4rem nos lados) */
+  background-color: #fff; /* Fundo branco */
+  
+  /* EFEITO "STICKY" - Fixo no topo */
+  position: sticky; /* A mágica acontece aqui */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que o cabeçalho fique sobre todo o outro conteúdo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Uma sombra sutil para dar destaque */
+}
+
+.logo img {
+  height: 50px; /* Define uma altura fixa para o logo. Ajuste se necessário. */
+  width: auto; /* A largura se ajusta automaticamente para manter a proporção */
+}
+
+nav ul {
+  display: flex; /* Deixa os itens do menu lado a lado */
+  list-style: none; /* Remove as bolinhas da lista */
+  gap: 2rem; /* Cria um espaço entre os links do menu */
+}
+
+nav ul li a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: #333; /* Cor do texto dos links */
+  font-weight: 700; /* Deixa a fonte mais forte (bold) */
+  font-size: 1.1rem;
+  position: relative; /* Base para o efeito de sublinhado animado */
+  padding-bottom: 5px; /* Espaço para o sublinhado não colar no texto */
+}
+
+/* Efeito de sublinhado animado ao passar o mouse */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Começa com largura zero (invisível) */
+  height: 2px;
+  background-color: #4B8F9E; /* Teal do logo */
+  transition: width 0.3s ease; /* Animação suave da largura */
+}
+
+nav ul li a:hover::after {
+  width: 100%; /* Expande a largura para 100% no hover */
+}
+
 /* ---- Seção de Serviços ---- */
 
 #services {
@@ -65,6 +119,113 @@ h2 {
   color: #4B8F9E; /* Azul claro/teal do seu logo */
   margin-bottom: 1rem;
 }
+
+
+/* ---- Seção de Contato ---- */
+
+#contact {
+  padding: 4rem 2rem;
+  background-color: #f4f4f4; /* Voltamos ao cinza claro para alternar as cores */
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* Informações de Contato (Coluna Esquerda) */
+.contact-info h2 {
+  text-align: left; /* Alinhamento específico para esta seção */
+}
+
+.info-list {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.info-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.info-list li i {
+  color: #4B8F9E; /* Teal do logo */
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  width: 25px; /* Alinha os ícones */
+  text-align: center;
+}
+
+.info-list li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.info-list li a:hover {
+  color: #2D4C69;
+}
+
+/* Formulário (Coluna Direita) */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Mantendo a consistência do design */
+  font-family: 'Poppins', sans-serif; /* Garante que a fonte seja usada nos inputs */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4B8F9E; /* Destaque ao focar no campo */
+}
+
+.btn-submit {
+  display: inline-block;
+  background-color: #2D4C69; /* Cor primária do logo */
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #3a6085; /* Um tom um pouco mais claro do azul */
+  transform: translateY(-2px);
+}
+
 
 /* ---- Seção Sobre ---- */
 
@@ -110,6 +271,9 @@ h2 {
 .about-text p {
   margin-bottom: 1rem; /* Espaçamento entre os parágrafos */
 }
+
+
+
 /* ---- Rodapé ---- */
 
 footer {
