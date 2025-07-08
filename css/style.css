@@ -14,6 +14,25 @@ body {
   color: #333;
 }
 
+/* ---- Reset Básico e Estilos Gerais ---- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* A MÁGICA DO SCROLL SUAVE ACONTECE AQUI */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:  'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
 /* ---- Estilos dos Títulos ---- */
 h2, h3 {
   font-family: 'Poppins', sans-serif; /* A MÁGICA ACONTECE AQUI */
@@ -29,56 +48,139 @@ h2 {
 
 /* ---- Cabeçalho (Header) ---- */
 
+/* ---- Cabeçalho (Header) ---- */
+
 header {
-  display: flex; /* ATIVA O FLEXBOX! A base de tudo */
-  justify-content: space-between; /* Joga o logo para a esquerda e a navegação para a direita */
-  align-items: center; /* Alinha o logo e os links verticalmente no centro */
-  padding: 1rem 4rem; /* Espaçamento interno (1rem em cima/baixo, 4rem nos lados) */
-  background-color: #fff; /* Fundo branco */
-  
-  /* EFEITO "STICKY" - Fixo no topo */
-  position: sticky; /* A mágica acontece aqui */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: #fff;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Garante que o cabeçalho fique sobre todo o outro conteúdo */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Uma sombra sutil para dar destaque */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-  height: 50px; /* Define uma altura fixa para o logo. Ajuste se necessário. */
-  width: auto; /* A largura se ajusta automaticamente para manter a proporção */
+  height: 50px;
+  width: auto;
 }
 
+/* Estilos da navegação para DESKTOP */
 nav ul {
-  display: flex; /* Deixa os itens do menu lado a lado */
-  list-style: none; /* Remove as bolinhas da lista */
-  gap: 2rem; /* Cria um espaço entre os links do menu */
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 
 nav ul li a {
-  text-decoration: none; /* Remove o sublinhado dos links */
-  color: #333; /* Cor do texto dos links */
-  font-weight: 700; /* Deixa a fonte mais forte (bold) */
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
   font-size: 1.1rem;
-  position: relative; /* Base para o efeito de sublinhado animado */
-  padding-bottom: 5px; /* Espaço para o sublinhado não colar no texto */
+  position: relative;
+  padding-bottom: 5px;
 }
 
-/* Efeito de sublinhado animado ao passar o mouse */
 nav ul li a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0; /* Começa com largura zero (invisível) */
+  width: 0;
   height: 2px;
-  background-color: #4B8F9E; /* Teal do logo */
-  transition: width 0.3s ease; /* Animação suave da largura */
+  background-color: #4B8F9E;
+  transition: width 0.3s ease;
 }
 
+
 nav ul li a:hover::after {
-  width: 100%; /* Expande a largura para 100% no hover */
+  width: 100%;
+}
+
+/* Ícone do Hambúrguer - INVISÍVEL NO DESKTOP */
+.menu-hamburguer {
+  display: none; /* Escondido por padrão */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10; /* Garante que fique sobre o menu */
+}
+
+.menu-hamburguer .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  
+}
+
+/* ================================== */
+/*      RESPONSIVIDADE (A MÁGICA)     */
+/* ================================== */
+
+/* Quando a tela for 768px ou menor... */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 2rem; /* Menos espaçamento nos lados */
+  }
+
+  /* 1. Esconde o menu de links do desktop */
+  nav ul {
+    position: fixed; /* Fica fixo na tela */
+    top: 0;
+    right: -100%; /* Começa escondido fora da tela, à direita */
+    width: 70%; /* Ocupa 70% da largura da tela */
+    max-width: 300px;
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    background-color: #2D4C69; /* Fundo azul escuro */
+    flex-direction: column; /* Links em coluna */
+    justify-content: center; /* Alinha os links no centro vertical */
+    align-items: center; /* Alinha os links no centro horizontal */
+    gap: 3rem; /* Aumenta o espaço entre os links */
+    transition: right 0.4s ease-in-out; /* Animação suave de deslize */
+    z-index: 5;
+  }
+
+  /* 2. Mostra o menu quando a classe 'active' for adicionada via JS */
+  nav ul.active { /* <-- MUDANÇA AQUI: a classe 'active' agora está na UL */
+    right: 0; /* Desliza o menu para dentro da tela */
+  }
+  
+  /* Estilo dos links no menu mobile */
+  nav ul li a {
+    color: #fff; /* Texto branco */
+    font-size: 1.5rem;
+  }
+  nav ul li a::after {
+     background-color: #fff; /* Sublinhado branco */
+  }
+
+  /* 3. Mostra o botão hambúrguer */
+  .menu-hamburguer {
+    display: flex;
+  }
+  
+  /* 4. Animação do Hambúrguer para um "X" quando ativo */
+  .menu-hamburguer.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-hamburguer.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-hamburguer.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 /* ---- Seção de Serviços ---- */
@@ -373,4 +475,43 @@ footer {
 .footer-bottom p {
   font-size: 0.9rem;
   color: #ccc;
+}
+
+/* ---- Animações ao Rolar (Scroll Animation) ---- */
+
+/* 1. Define o estado inicial dos elementos que serão animados */
+.hidden {
+  opacity: 0; /* Começa completamente transparente */
+  transform: translateY(30px); /* Começa 30px para baixo */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Animação suave */
+}
+
+/* 2. Define o estado final (visível) que será ativado pelo JavaScript */
+.show {
+  opacity: 1; /* Totalmente visível */
+  transform: translateY(0); /* Volta para a posição original */
+}
+
+/* BÔNUS: Efeito cascata para os cards de serviço */
+/* Adiciona um pequeno atraso para cada card, criando um efeito mais dinâmico */
+.service-card.hidden:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.service-card.hidden:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+/* Estilo para a mensagem de sucesso do formulário */
+#success-message {
+  padding: 2rem;
+  border: 2px solid #4B8F9E;
+  border-radius: 8px;
+  background-color: #f0f8f9;
+  text-align: center;
+}
+
+#success-message h3 {
+  color: #2D4C69;
+  margin-bottom: 1rem;
 }
